@@ -244,8 +244,8 @@ def send_for_number(_phone, message):
     _phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
     _phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
     _phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '915) 350-99-08'
-    _email = _name+f'{iteration}'+'@gmail.com'
-    email = _name+f'{iteration}'+'@gmail.com'
+    _email = _name+'{iteration}'+'@gmail.com'
+    email = _name+'{iteration}'+'@gmail.com'
     request_timeout = 0.00001
     while True:
         try:
