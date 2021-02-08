@@ -86,11 +86,11 @@ running_spams_per_chat_id = []
 def addwl(message):
     try:
         if str(message.text) in open('numWL.txt').read():
-            bot.send_message(message.chat.id, f"Номер {message.text} - уже есть в белом листе")
+            bot.send_message(message.chat.id, "Номер {message.text} - уже есть в белом листе")
         else:
             f = open('numWL.txt', 'a')
             f.write(str(message.text) + '\n')
-            bot.send_message(message.chat.id, f"Номер {message.text} - успешно добавлен в белый лист")
+            bot.send_message(message.chat.id, "Номер {message.text} - успешно добавлен в белый лист")
     except:
         bot.send_message(message.chat.id, "Ошибка! Вы ввели не номер!")
 
