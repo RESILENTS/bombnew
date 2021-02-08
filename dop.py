@@ -1,7 +1,6 @@
 ﻿import telebot, shelve, datetime, sqlite3, SimpleQIWI, random
 import files, config
 bot = telebot.TeleBot(config.token)
-from coinbase.wallet.client import Client
 
 def it_first(chat_id):
 	try:
