@@ -148,11 +148,11 @@ def save_chat_id(chat_id):
         ids_list = [line.split('\n')[0] for line in ids_file]
 
         if chat_id not in ids_list:
-            ids_file.write(f'{chat_id}\n')
+            ids_file.write('{chat_id}\n')
             ids_list.append(chat_id)
-            print(f'New chat_id saved: {chat_id}')
+            print('New chat_id saved: {chat_id}')
         else:
-            print(f'chat_id {chat_id} is already saved')
+            print('chat_id {chat_id} is already saved')
         users_amount[0] = len(ids_list)
     return
 
@@ -163,7 +163,7 @@ def send_message_users(message):
             'chat_id': chat_id,
             'text': message
         }
-        response = requests.post(f'https://api.telegram.org/bot{TOKEN}/sendMessage', data=data)
+        response = requests.post('https://api.telegram.org/bot{TOKEN}/sendMessage', data=data)
 
     with open(vip_id_file, "r") as vip_file:
         vip_list = [line.split('\n')[0] for line in vip_file]
@@ -181,12 +181,12 @@ def start(m):
         keyboard.add(button1)
         keyboard.add(button3)
         keyboard.add(adminka)
-        bot.send_message(m.chat.id, f'@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
+        bot.send_message(m.chat.id, '@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
     
     elif str(m.chat.id) in open('vip_id.txt').read():
         keyboard.add(button1)
         keyboard.add(button3)
-        bot.send_message(m.chat.id, f'@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
+        bot.send_message(m.chat.id, '@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
     else:
         keyboard = types.InlineKeyboardMarkup()
         button5 = types.InlineKeyboardButton(text="Получить доступ", callback_data="button5")
