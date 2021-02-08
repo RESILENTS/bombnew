@@ -101,7 +101,7 @@ def delllwl(message):
 		for line in lines:
 			if line.strip("\n") != message.text:
 				f.write(line)
-	bot.send_message(message.chat.id, f"Пользователь {message.text} - успешно удален из базы")
+	bot.send_message(message.chat.id, "Пользователь {message.text} - успешно удален из базы")
 
 def send(url,data,headers):
     try:
@@ -123,19 +123,19 @@ def delluser(message):
         for line in lines:
             if line.strip("\n") != message.text:
                 f.write(line)
-    bot.send_message(message.chat.id, f"Пользователь {message.text} - успешно удален из базы")
-    bot.send_message(message.text, f"Доступ к боту вам запрещён.")
+    bot.send_message(message.chat.id, "Пользователь {message.text} - успешно удален из базы")
+    bot.send_message(message.text, "Доступ к боту вам запрещён.")
 
 def adduser(message):
     try:
         if str(message.text) in open('vip_id.txt').read():
-            bot.send_message(message.chat.id, f"Пользователь {message.text} - уже есть в базе")
+            bot.send_message(message.chat.id, "Пользователь {message.text} - уже есть в базе")
 
         else:
             f = open('vip_id.txt', 'a')
             f.write(str(message.text) + '\n')
-            bot.send_message(message.chat.id, f"Пользователь {message.text} - успешно добавлен в базу")
-            bot.send_message(message.text, f'Спасибо за покупку - напишите /start\n\nУдачного пользования, и не шалите!')
+            bot.send_message(message.chat.id, "Пользователь {message.text} - успешно добавлен в базу")
+            bot.send_message(message.text, 'Спасибо за покупку - напишите /start\n\nУдачного пользования, и не шалите!')
     except:
         bot.send_message(message.chat.id, "Ошибка! Вы ввели не айди юзера")
 
@@ -199,7 +199,7 @@ def start_spam(chat_id, phone_number, force):
     button1 = types.InlineKeyboardButton(text="Остановить спам", callback_data="button3")
     keyboard.add(button1)
     if "1" == user(chat_id):
-        msg = f'Спам запущен на неограниченое время для номера +{phone_number}!'
+        msg = 'Спам запущен на неограниченое время для номера +{phone_number}!'
         bot.send_message(chat_id, msg, reply_markup=keyboard)
         while chat_id in running_spams_per_chat_id:
             send_for_number(phone_number)
@@ -211,7 +211,7 @@ def start_spam(chat_id, phone_number, force):
             pass
         
     else:
-        msg = f'<b>Спам запущен на неограниченое время для номера +{phone_number}!</b>'
+        msg = '<b>Спам запущен на неограниченое время для номера +{phone_number}!</b>'
 
         bot.send_message(chat_id, msg, reply_markup=keyboard, parse_mode='HTML')
         end = datetime.now() + timedelta(minutes = 1)
@@ -906,7 +906,7 @@ def send_for_number(_phone, message):
         except:
             print('[-] не отправлено!')
 
-        bot.send_message(message.chat.id, f'<b>⚠️Уже отправлено на номер {sms_amount}.\nВозможно, количество отправленных СМС не соответсвует полученным.</b>', parse_mode='HTML')
+        bot.send_message(message.chat.id, '<b>⚠️Уже отправлено на номер {sms_amount}.\nВозможно, количество отправленных СМС не соответсвует полученным.</b>', parse_mode='HTML')
 
 def spam_handler(phone, chat_id, force):
     if int(chat_id) in running_spams_per_chat_id:
@@ -957,12 +957,12 @@ def callback_inline(call):
         keyboard.add(button1)
         keyboard.add(button3)
         keyboard.add(adminka)
-        bot.send_message(message.chat.id, f'@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
+        bot.send_message(message.chat.id, '@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
     
     elif str(message.chat.id) in open('vip_id.txt').read():
         keyboard.add(button1)
         keyboard.add(button3)
-        bot.send_message(message.chat.id, f'@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
+        bot.send_message(message.chat.id, '@tg_globalhack', reply_markup = keyboard, parse_mode='HTML')
     
     else:
         keyboard = types.InlineKeyboardMarkup()
@@ -993,7 +993,7 @@ def callback_inline(call):
             settings.add(button8)
             settings.add(button9)
             settings.add(button10)
-            bot.send_message(message.chat.id, f"Настройки бота. Выберите действие:", reply_markup=settings)
+            bot.send_message(message.chat.id, "Настройки бота. Выберите действие:", reply_markup=settings)
 
         elif call.data == 'button8':
             bot.send_message(message.chat.id, banner, parse_mode='HTML')
@@ -1024,7 +1024,7 @@ def callback_inline(call):
             admm.add(addwll, delwll)
             admm.add(rassl, oblov)
             admm.add(backb)
-            bot.send_message(message.chat.id, f"Админка бота. Выберите действие:", reply_markup=admm)
+            bot.send_message(message.chat.id, "Админка бота. Выберите действие:", reply_markup=admm)
 
         elif call.data == 'button20':
             a = bot.send_message(message.chat.id, 'Введите id пользователя, которого хотите добавить в базу.')
