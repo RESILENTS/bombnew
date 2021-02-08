@@ -28,7 +28,7 @@ def send_text(message):
         bot.send_message(message.chat.id, 'По поводу покупки рекламы писать @badboyee')
     elif message.text.startswith('+380') or message.text.startswith('+7'):
         number = message.text
-        bot.send_message(message.from_user.id, f'<b>Ваш номер: {number}</b>', reply_markup=xui, parse_mode='html')
+        bot.send_message(message.from_user.id, '<b>Ваш номер: {number}</b>', reply_markup=xui, parse_mode='html')
         
         
 @bot.message_handler(content_types=['text'])
